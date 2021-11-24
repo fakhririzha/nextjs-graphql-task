@@ -167,6 +167,7 @@ const CategoryId = ({ slug }) => {
                           pathname: '/product/[urlKey]',
                           query: { urlKey: item.url_key },
                         }}
+                        as={`/${item.url_key}.html`}
                       >
                         <Button
                           variant="contained"
