@@ -147,6 +147,9 @@ const Product = (props) => {
                         <Typography variant="subtitle1" color="textSecondary">
                           {product.sku}
                         </Typography>
+                        <Typography variant="subtitle2" color="textSecondary">
+                          {product.qty_available != 0 ? 'ada' : 'tidak ada'}
+                        </Typography>
                         <Typography
                           variant="subtitle1"
                           paragraph

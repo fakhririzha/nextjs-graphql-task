@@ -16,7 +16,6 @@ const getPage = (resolver) => {
   // }
   else if (resolver.type === 'PRODUCT') {
     return <Product res={resolver} />;
-    return;
   }
   return <span />;
 };
@@ -52,7 +51,7 @@ const DynamicPage = ({ slug }) => {
   const resolver = data.urlResolver;
   console.log('resolver', resolver);
 
-  return <div>{resolver.canonical_url}</div>;
+  return <>{getPage(resolver)}</>;
 };
 
 export const getServerSideProps = async (context) => {

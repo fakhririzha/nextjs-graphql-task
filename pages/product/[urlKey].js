@@ -15,6 +15,7 @@ import {
   CircularProgress,
   Snackbar,
   Hidden,
+  Chip,
 } from '@material-ui/core';
 import { Skeleton, Alert } from '@material-ui/lab';
 
@@ -145,6 +146,16 @@ const UrlKey = () => {
                         <Typography variant="subtitle1" color="textSecondary">
                           {product.sku}
                         </Typography>
+                        <Typography variant="subtitle2" color="textSecondary">
+                          {product.qty_available != null ? (
+                            <Chip
+                              label={`In stock: ${product.qty_available}`}
+                              color="primary"
+                            />
+                          ) : (
+                            <Chip label="Out of stock" color="secondary" />
+                          )}
+                        </Typography>
                         <Typography
                           variant="subtitle1"
                           paragraph
@@ -175,13 +186,19 @@ const UrlKey = () => {
                         >
                           +
                         </Button>{' '}
-                        <Button
-                          variant="contained"
-                          color="primary"
-                          onClick={() => AddToCartButtonHandler(product.sku)}
-                        >
-                          Add To Cart
-                        </Button>
+                        {product.qty_available != null ? (
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() => AddToCartButtonHandler(product.sku)}
+                          >
+                            Add To Cart
+                          </Button>
+                        ) : (
+                          <Button color="secondary" disabled>
+                            Add To Cart
+                          </Button>
+                        )}
                       </CardContent>
                     </div>
                   </Card>
