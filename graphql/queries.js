@@ -8,6 +8,7 @@ export const GET_URL_RESOLVER = gql`
       id
       redirectCode
       relative_url
+      canonical_url
       type
     }
   }

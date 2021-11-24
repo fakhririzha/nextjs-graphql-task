@@ -1,17 +1,22 @@
 import React from 'react';
+import router from 'next/router';
 // Query configuration
 import * as Q from '@Query';
 
 // Apollo Client
 import { useQuery } from '@apollo/client';
+import Product from './product';
 
 const getPage = (resolver) => {
   if (!resolver) {
     return <div>Page not found</div>;
-  } else if (resolver.type === 'CATEGORY') {
-    return <Category />;
-  } else if (resolver.type === 'PRODUCT') {
-    return <Product url_key={slug[0]} />;
+  }
+  // else if (resolver.type === 'CATEGORY') {
+  //   router.push(`/category/${resolver.slug}`);
+  // }
+  else if (resolver.type === 'PRODUCT') {
+    return <Product res={resolver} />;
+    return;
   }
   return <span />;
 };
