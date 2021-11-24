@@ -15,6 +15,7 @@ import {
   CircularProgress,
   Snackbar,
   Hidden,
+  Chip,
 } from '@material-ui/core';
 import { Skeleton, Alert } from '@material-ui/lab';
 
@@ -35,7 +36,7 @@ const Product = (props) => {
   // Router
   const router = useRouter();
   //   const { urlKey } = router.query; <- This is the old ways. Noob.
-  const urlKey = props.resolver.canonical_url.replace('.html', '');
+  const urlKey = props.res.canonical_url.replace('.html', '');
 
   const [ProductItem, setProductItem] = useState(null);
   const [Quantity, setQuantity] = useState(1);
@@ -148,7 +149,14 @@ const Product = (props) => {
                           {product.sku}
                         </Typography>
                         <Typography variant="subtitle2" color="textSecondary">
-                          {product.qty_available != 0 ? 'ada' : 'tidak ada'}
+                          {product.qty_available != null ? (
+                            <Chip
+                              label={`In stock: ${product.qty_available}`}
+                              color="primary"
+                            />
+                          ) : (
+                            <Chip label="Out of stock" color="secondary" />
+                          )}
                         </Typography>
                         <Typography
                           variant="subtitle1"
@@ -180,13 +188,19 @@ const Product = (props) => {
                         >
                           +
                         </Button>{' '}
-                        <Button
-                          variant="contained"
-                          color="primary"
-                          onClick={() => AddToCartButtonHandler(product.sku)}
-                        >
-                          Add To Cart
-                        </Button>
+                        {product.qty_available != null ? (
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() => AddToCartButtonHandler(product.sku)}
+                          >
+                            Add To Cart
+                          </Button>
+                        ) : (
+                          <Button color="secondary" disabled>
+                            Add To Cart
+                          </Button>
+                        )}
                       </CardContent>
                     </div>
                   </Card>
