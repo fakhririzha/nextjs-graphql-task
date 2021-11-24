@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@uiComponent/*": [
+                "src/components/UI/*"
+            ],
+            "@uiStyles/*": [
+                "styles/components/UI/*"
+            ],
+            "@PageStyles/*": [
+                "styles/pages/*"
+            ],
+            "@Query": [
+                "graphql/queries"
+            ],
+            "@Mutation": [
+                "graphql/mutation"
+            ]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
+}

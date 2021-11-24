@@ -1,0 +1,49 @@
+{
+    "cart": {
+        "__typename": "Cart",
+        "items": [
+            {
+                "__typename": "SimpleCartItem",
+                "product": {
+                    "__typename": "SimpleProduct",
+                    "uid": "MTk=",
+                    "url_key": "go-get-r-pushup-grips",
+                    "sku": "24-UG05",
+                    "name": "Go-Get'r Pushup Grips",
+                    "image": {
+                        "__typename": "ProductImage",
+                        "url": "https://b2cdemo.getswift.asia/media/catalog/product/cache/bb6747cb78f62b4f8afaa3d7dcaedbc4/u/g/ug05-gr-0.jpg"
+                    }
+                },
+                "quantity": 1,
+                "prices": {
+                    "__typename": "CartItemPrices",
+                    "row_total": {
+                        "__typename": "Money",
+                        "value": 192000,
+                        "currency": "IDR"
+                    },
+                    "price": {
+                        "__typename": "Money",
+                        "value": 192000,
+                        "currency": "IDR"
+                    }
+                }
+            }
+        ],
+        "prices": {
+            "__typename": "CartPrices",
+            "subtotal_excluding_tax": {
+                "__typename": "Money",
+                "currency": "IDR",
+                "value": 192000
+            },
+            "discounts": null,
+            "grand_total": {
+                "__typename": "Money",
+                "value": 192000,
+                "currency": "IDR"
+            }
+        }
+    }
+}
